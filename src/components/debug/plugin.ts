@@ -40,6 +40,8 @@ const DebugPlugin = <Plugin>{
       if (opts.components.before) {
         for (const beforeKey in opts.components.before) {
           const component = opts.components.before[beforeKey];
+          if (!component) continue;
+
           const Name = `DDSC__${beforeKey}`;
           app.component(Name, component);
           DebugDockComponents.before.push(Name);
@@ -49,6 +51,8 @@ const DebugPlugin = <Plugin>{
       if (opts.components.after) {
         for (const afterKey in opts.components.after) {
           const component = opts.components.after[afterKey];
+          if (!component) continue;
+
           const Name = `DDSC__${afterKey}`;
           app.component(Name, component);
           DebugDockComponents.after.push(Name);
